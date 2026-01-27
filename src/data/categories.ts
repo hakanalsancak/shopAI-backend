@@ -51,6 +51,27 @@ const defaultPriorities = [
   { id: 'durability', label: 'Durability' },
 ];
 
+// "Not here?" subcategory generator for custom searches
+const notHereSubcategory = (categoryId: string, categoryName: string, currency: string) => ({
+  id: `${categoryId}-custom`,
+  name: 'Not here?',
+  icon: 'magnifyingglass',
+  categoryId: categoryId,
+  questionFlow: {
+    questions: [
+      {
+        id: 'custom_search',
+        text: `What ${categoryName.toLowerCase()} product are you looking for?`,
+        type: 'text_input' as const,
+        required: true,
+        placeholder: 'e.g. Wireless charger, Smart watch...',
+      },
+      budgetQuestion(currency, 2000),
+      prioritiesQuestion(defaultPriorities),
+    ],
+  },
+});
+
 // ===========================================
 // Categories Definition
 // ===========================================
@@ -2039,7 +2060,13 @@ export const getCategories = (currency: string = 'GBP'): Category[] => [
       },
     ],
   },
-];
+].map(category => ({
+  ...category,
+  subcategories: [
+    ...category.subcategories,
+    notHereSubcategory(category.id, category.name, currency),
+  ],
+}));
 
 // ===========================================
 // Helper Functions
