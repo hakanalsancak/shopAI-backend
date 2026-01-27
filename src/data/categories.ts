@@ -49,11 +49,11 @@ const prioritiesQuestion = (options: { id: string; label: string }[]): Question 
 
 export const getCategories = (currency: string = 'GBP'): Category[] => [
   // =====================
-  // ELECTRONICS
+  // ELECTRONICS & COMPUTERS
   // =====================
   {
     id: 'electronics',
-    name: 'Electronics',
+    name: 'Electronics & Computers',
     icon: 'laptopcomputer',
     description: 'Phones, laptops, tablets & more',
     subcategories: [
@@ -250,11 +250,11 @@ export const getCategories = (currency: string = 'GBP'): Category[] => [
   },
 
   // =====================
-  // HOME & KITCHEN
+  // HOME, GARDEN & DIY
   // =====================
   {
     id: 'home',
-    name: 'Home & Kitchen',
+    name: 'Home, Garden & DIY',
     icon: 'house.fill',
     description: 'Appliances, furniture & decor',
     subcategories: [
@@ -350,12 +350,12 @@ export const getCategories = (currency: string = 'GBP'): Category[] => [
   },
 
   // =====================
-  // BEAUTY & PERSONAL CARE
+  // HEALTH & BEAUTY
   // =====================
   {
     id: 'beauty',
-    name: 'Beauty & Personal Care',
-    icon: 'sparkles',
+    name: 'Health & Beauty',
+    icon: 'heart.fill',
     description: 'Skincare, makeup & grooming',
     subcategories: [
       {
@@ -427,11 +427,11 @@ export const getCategories = (currency: string = 'GBP'): Category[] => [
   },
 
   // =====================
-  // FITNESS & SPORTS
+  // SPORTS & OUTDOORS
   // =====================
   {
     id: 'fitness',
-    name: 'Fitness & Sports',
+    name: 'Sports & Outdoors',
     icon: 'figure.run',
     description: 'Exercise equipment & sportswear',
     subcategories: [
@@ -498,12 +498,12 @@ export const getCategories = (currency: string = 'GBP'): Category[] => [
   },
 
   // =====================
-  // TOYS & GAMES
+  // TOYS, CHILDREN & BABY
   // =====================
   {
     id: 'toys',
-    name: 'Toys & Games',
-    icon: 'gamecontroller.fill',
+    name: 'Toys, Children & Baby',
+    icon: 'teddybear.fill',
     description: 'For kids & adults',
     subcategories: [
       {
@@ -580,11 +580,11 @@ export const getCategories = (currency: string = 'GBP'): Category[] => [
   },
 
   // =====================
-  // FASHION
+  // CLOTHES, SHOES & WATCHES
   // =====================
   {
     id: 'fashion',
-    name: 'Fashion',
+    name: 'Clothes, Shoes & Watches',
     icon: 'tshirt.fill',
     description: 'Clothing, shoes & accessories',
     subcategories: [
