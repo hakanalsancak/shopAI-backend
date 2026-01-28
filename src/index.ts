@@ -1,5 +1,5 @@
 // ===========================================
-// ShopAI Backend API - Main Entry Point
+// Zokey Backend API - Main Entry Point
 // Vercel Serverless Compatible
 // ===========================================
 
@@ -591,7 +591,7 @@ app.get('/api/legal/privacy', (req, res) => {
       title: 'Privacy Policy',
       lastUpdated: '2026-01-27',
       content: `
-ShopAI Privacy Policy
+Zokey Privacy Policy
 
 1. Information We Collect
 - Device identifier (anonymous)
@@ -630,13 +630,13 @@ app.get('/api/legal/terms', (req, res) => {
       title: 'Terms of Service',
       lastUpdated: '2026-01-27',
       content: `
-ShopAI Terms of Service
+Zokey Terms of Service
 
 1. Service Description
-ShopAI provides AI-powered product recommendations. We do not sell products directly - all purchases are made through Amazon.
+Zokey provides AI-powered product recommendations. We do not sell products directly - all purchases are made through Amazon.
 
 2. Affiliate Disclosure
-ShopAI participates in the Amazon Associates Program. We earn commissions from qualifying purchases made through our links.
+Zokey participates in the Amazon Associates Program. We earn commissions from qualifying purchases made through our links.
 
 3. Subscriptions
 - Free tier: 3 product searches
@@ -651,7 +651,7 @@ Recommendations are provided "as is". We do not guarantee:
 - Product quality
 
 5. Limitation of Liability
-ShopAI is not responsible for purchases made on Amazon.
+Zokey is not responsible for purchases made on Amazon.
 
 Contact: legal@shopai.app
       `.trim(),
@@ -679,7 +679,7 @@ const PORT = process.env.PORT || 3000;
 
 if (process.env.NODE_ENV !== 'production') {
   app.listen(PORT, () => {
-    console.log(`🚀 ShopAI Backend running on http://localhost:${PORT}`);
+    console.log(`🚀 Zokey Backend running on http://localhost:${PORT}`);
     console.log(`📦 Mock mode: ${process.env.MOCK_MODE === 'true' ? 'ENABLED' : 'DISABLED'}`);
   });
 }

@@ -1,5 +1,5 @@
 -- ===========================================
--- ShopAI PostgreSQL Database Schema
+-- Zokey PostgreSQL Database Schema
 -- Designed for Neon PostgreSQL
 -- ===========================================
 
