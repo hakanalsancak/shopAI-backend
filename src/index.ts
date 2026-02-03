@@ -26,6 +26,7 @@ import {
   getUserByDeviceId, 
   getUserById,
   incrementUserSearchCount,
+  resetUserSearchCount,
   updateUserSubscription,
   createSearchHistory,
   markSearchCompleted,
@@ -227,6 +228,40 @@ app.get('/api/auth/status', authenticateToken, async (req: AuthenticatedRequest,
     res.status(500).json({
       success: false,
       error: { code: 'SERVER_ERROR', message: 'Failed to get status' },
+    } as APIResponse<null>);
+  }
+});
+
+// Reset free searches (TESTING ONLY - remove in production)
+app.post('/api/auth/reset-searches', authenticateToken, async (req: AuthenticatedRequest, res: Response) => {
+  try {
+    const user = await resetUserSearchCount(req.userId!);
+    
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        error: { code: 'USER_NOT_FOUND', message: 'User not found' },
+      } as APIResponse<null>);
+    }
+
+    const canSearch = user.subscriptionStatus === 'active' || 
+                      user.freeSearchesUsed < user.freeSearchesLimit;
+
+    res.json({
+      success: true,
+      data: {
+        userId: user.id,
+        freeSearchesRemaining: user.freeSearchesLimit - user.freeSearchesUsed,
+        subscriptionStatus: user.subscriptionStatus,
+        subscriptionExpiresAt: user.subscriptionExpiresAt?.toISOString() || null,
+        canSearch,
+      } as UserStatusResponse,
+    } as APIResponse<UserStatusResponse>);
+  } catch (error) {
+    console.error('Reset searches error:', error);
+    res.status(500).json({
+      success: false,
+      error: { code: 'SERVER_ERROR', message: 'Failed to reset searches' },
     } as APIResponse<null>);
   }
 });

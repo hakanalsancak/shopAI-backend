@@ -51,6 +51,18 @@ export async function incrementUserSearchCount(userId: string): Promise<User | n
   return result.length > 0 ? mapUserRow(result[0]) : null;
 }
 
+// Reset free searches for testing
+export async function resetUserSearchCount(userId: string): Promise<User | null> {
+  const result = await sql`
+    UPDATE users 
+    SET free_searches_used = 0,
+        updated_at = CURRENT_TIMESTAMP
+    WHERE id = ${userId}
+    RETURNING *
+  `;
+  return result.length > 0 ? mapUserRow(result[0]) : null;
+}
+
 export async function updateUserSubscription(
   userId: string,
   status: SubscriptionStatus,
