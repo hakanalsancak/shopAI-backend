@@ -93,7 +93,7 @@ async function verifyWithApple(
     throw new Error(`Apple API error: ${response.status}`);
   }
 
-  return response.json();
+  return response.json() as Promise<AppleReceiptResponse>;
 }
 
 // ===========================================

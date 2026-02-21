@@ -52,7 +52,7 @@ const defaultPriorities = [
 ];
 
 // "Not here?" subcategory generator for custom searches
-const notHereSubcategory = (categoryId: string, categoryName: string, currency: string) => ({
+const notHereSubcategory = (categoryId: string, categoryName: string, currency: string): { id: string; name: string; icon: string; categoryId: string; questionFlow: { questions: Question[] } } => ({
   id: `${categoryId}-custom`,
   name: 'Not here?',
   icon: 'magnifyingglass',
@@ -76,7 +76,7 @@ const notHereSubcategory = (categoryId: string, categoryName: string, currency: 
 // Categories Definition
 // ===========================================
 
-export const getCategories = (currency: string = 'GBP'): Category[] => [
+export const getCategories = (currency: string = 'GBP') => [
   // =====================
   // ELECTRONICS & COMPUTERS
   // =====================
@@ -2066,7 +2066,7 @@ export const getCategories = (currency: string = 'GBP'): Category[] => [
     ...category.subcategories,
     notHereSubcategory(category.id, category.name, currency),
   ],
-}));
+})) as Category[];
 
 // ===========================================
 // Helper Functions

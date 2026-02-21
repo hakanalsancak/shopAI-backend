@@ -33,11 +33,12 @@ export interface QuestionFlowConfig {
 export interface Question {
   id: string;
   text: string;
-  type: 'single_select' | 'multi_select' | 'range' | 'brand_select';
+  type: 'single_select' | 'multi_select' | 'range' | 'brand_select' | 'text_input';
   required: boolean;
   options?: QuestionOption[];
   rangeConfig?: RangeConfig;
-  dynamicOptions?: boolean; // If true, options are fetched based on category
+  dynamicOptions?: boolean;
+  placeholder?: string;
 }
 
 export interface QuestionOption {

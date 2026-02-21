@@ -147,7 +147,7 @@ async function rateLimitMiddleware(req: AuthenticatedRequest, res: Response, nex
 // ===========================================
 
 // Health check
-app.get('/api/health', (req, res) => {
+app.get('/api/health', (req: Request, res: Response) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
@@ -619,7 +619,7 @@ app.post(
 // Legal Routes
 // ===========================================
 
-app.get('/api/legal/privacy', (req, res) => {
+app.get('/api/legal/privacy', (req: Request, res: Response) => {
   res.json({
     success: true,
     data: {
@@ -658,7 +658,7 @@ Contact: privacy@shopai.app
   });
 });
 
-app.get('/api/legal/terms', (req, res) => {
+app.get('/api/legal/terms', (req: Request, res: Response) => {
   res.json({
     success: true,
     data: {
