@@ -707,17 +707,14 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 });
 
 // ===========================================
-// Server Start (for local development)
+// Server Start
 // ===========================================
 
 const PORT = process.env.PORT || 3000;
 
-if (process.env.NODE_ENV !== 'production') {
-  app.listen(PORT, () => {
-    console.log(`🚀 Zokey Backend running on http://localhost:${PORT}`);
-    console.log(`📦 Mock mode: ${process.env.MOCK_MODE === 'true' ? 'ENABLED' : 'DISABLED'}`);
-  });
-}
+app.listen(PORT, () => {
+  console.log(`Zokey Backend running on port ${PORT}`);
+  console.log(`Mock mode: ${process.env.MOCK_MODE === 'true' ? 'ENABLED' : 'DISABLED'}`);
+});
 
-// Export for Vercel
 export default app;
